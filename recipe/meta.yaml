@@ -44,6 +44,7 @@ about:
     Complete support for Berkeley DB Replication Manager. 
     Complete support for Berkeley DB Base Replication. Support for RPC.
   doc_url: https://www.jcea.es/programacion/pybsddb_doc/
+  dev_url: https://hg.jcea.es/pybsddb/
 
 extra:
   recipe-maintainers:
