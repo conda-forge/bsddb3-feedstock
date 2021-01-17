@@ -1,12 +1,11 @@
-{% set name = "bsddb3" %}
 {% set version = "6.2.9" %}
 
 package:
-  name: {{ name|lower }}
+  name: bsddb3
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/b/bsddb3/bsddb3-{{ version }}.tar.gz
   sha256: 70d05ec8dc568f42e70fc919a442e0daadc2a905a1cfb7ca77f549d49d6e7801
 
 build:
