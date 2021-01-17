@@ -14,7 +14,8 @@ build:
     export YES_I_HAVE_THE_RIGHT_TO_USE_THIS_BERKELEY_DB_VERSION=1  # [not win]
     export BERKELEYDB_DIR=$PREFIX                                  # [not win]
     set YES_I_HAVE_THE_RIGHT_TO_USE_THIS_BERKELEY_DB_VERSION=1     # [win]
-    set BERKELEYDB_DIR=%PREFIX%                                    # [win]
+    set BERKELEYDB_INCDIR=%LIBRARY_INC%                            # [win]
+    set BERKELEYDB_LIBDIR=%LIBRARY_LIB%                            # [win]
     {{ PYTHON }} -m pip install . --no-deps --ignore-installed
 
 requirements:
