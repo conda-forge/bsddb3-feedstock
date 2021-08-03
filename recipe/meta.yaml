@@ -1,17 +1,22 @@
-{% set name = "bsddb3" %}
 {% set version = "6.2.9" %}
 
 package:
-  name: {{ name|lower }}
+  name: bsddb3
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/b/bsddb3/bsddb3-{{ version }}.tar.gz
   sha256: 70d05ec8dc568f42e70fc919a442e0daadc2a905a1cfb7ca77f549d49d6e7801
 
 build:
   number: 1
-  skip: true  # [win or py2k]
+  script: |
+    export YES_I_HAVE_THE_RIGHT_TO_USE_THIS_BERKELEY_DB_VERSION=1  # [not win]
+    export BERKELEYDB_DIR=$PREFIX                                  # [not win]
+    set YES_I_HAVE_THE_RIGHT_TO_USE_THIS_BERKELEY_DB_VERSION=1     # [win]
+    set BERKELEYDB_INCDIR=%LIBRARY_INC%                            # [win]
+    set BERKELEYDB_LIBDIR=%LIBRARY_LIB%                            # [win]
+    {{ PYTHON }} -m pip install . --no-deps --ignore-installed
 
 requirements:
   build:
@@ -46,6 +51,7 @@ about:
     Complete support for Berkeley DB Replication Manager. 
     Complete support for Berkeley DB Base Replication. Support for RPC.
   doc_url: https://www.jcea.es/programacion/pybsddb_doc/
+  dev_url: https://hg.jcea.es/pybsddb/
 
 extra:
   recipe-maintainers:
